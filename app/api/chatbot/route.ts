@@ -138,9 +138,9 @@ export async function POST(req: NextRequest) {
         {
           name: "BUSINESS",
           description: "Handles requests for sector details and dynamic business offerings.",
-          responseGuidance: "Explain the active sectors of Rubinsons: Builders & Infrastructure, Contracting, ICH Dine Academia, Healthcare, and Digital Media. Guide user to browse sector-specific pages.",
+          responseGuidance: "Explain the active sectors of Rubinsons: Builders & Infrastructure, Contracting, ICH Dien Academia, Healthcare, and Digital Media. Guide user to browse sector-specific pages.",
           priority: 8,
-          keywords: [{ keyword: "builders" }, { keyword: "construction" }, { keyword: "contracting" }, { keyword: "dine" }, { keyword: "academia" }, { keyword: "healthcare" }, { keyword: "shanti" }, { keyword: "digital" }, { keyword: "sectors" }],
+          keywords: [{ keyword: "builders" }, { keyword: "construction" }, { keyword: "contracting" }, { keyword: "dien" }, { keyword: "academia" }, { keyword: "healthcare" }, { keyword: "shanti" }, { keyword: "digital" }, { keyword: "sectors" }],
         },
         {
           name: "LEADERSHIP",
@@ -168,7 +168,7 @@ export async function POST(req: NextRequest) {
       businessDivisions = [
         { slug: "builders-infrastructure", title: "Rubinsons Builders & Infrastructure", shortDescription: "Civil construction, engineering, residential and commercial infrastructure." },
         { slug: "contracting", title: "Rubinsons Contracting", shortDescription: "Private and public sector contracting services, procurement, and project execution." },
-        { slug: "ich-dine-academia", title: "ICH Dine Academia", shortDescription: "Education, skill development, hospitality training, vocational programs, and professional events." },
+        { slug: "ich-dien-academia", title: "ICH Dien Academia", shortDescription: "Education, skill development, hospitality training, vocational programs, and professional events." },
         { slug: "healthcare", title: "Healthcare / Shanti Medical Hall", shortDescription: "Distribution of medical supplies, retail pharmaceuticals, and healthcare consulting." },
         { slug: "digital-media-marketing", title: "Rubinsons Digital Media & Marketing", shortDescription: "Digital advertising, consulting, brand strategy, e-commerce support, and media creation." },
       ];
@@ -294,7 +294,7 @@ Assistant:`;
         if (matchedIntent.name === "INVESTOR") {
           responseText = "Rubinsons Group prioritizes disciplined capital allocation, multi-generational value creation, and strong corporate governance. Authorized stakeholders can access our secure reports in the /investor-portal or request our investor prospectus pack.";
         } else if (matchedIntent.name === "BUSINESS") {
-          responseText = "Rubinsons Group operates across 5 key sectors: Builders & Infrastructure, Contracting, ICH Dine Academia, Healthcare (Shanti Medical Hall), and Digital Media. You can explore details for each division on our /businesses page.";
+          responseText = "Rubinsons Group operates across 5 key sectors: Builders & Infrastructure, Contracting, ICH Dien Academia, Healthcare (Shanti Medical Hall), and Digital Media. You can explore details for each division on our /businesses page.";
         } else if (matchedIntent.name === "LEADERSHIP") {
           responseText = "Our Group is governed by a distinguished board: Dr. Rudra Bhanu (Managing Director), alongside Directors Bindu Sharma, Shreyashi Sharma, Nipun Sharma, and Stuti Sharma. Biography details can be updated via the CMS.";
         } else if (matchedIntent.name === "IMPACT") {

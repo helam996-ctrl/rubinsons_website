@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: "Rubinsons Contracting | Sectors Showcase",
       description: "Private and public sector contracting services, procurement management, and project execution.",
     },
-    "ich-dine-academia": {
-      title: "ICH Dine Academia | Sectors Showcase",
+    "ich-dien-academia": {
+      title: "ICH Dien Academia | Sectors Showcase",
       description: "Education, skill development, hospitality training, vocational programs, and professional events.",
     },
     "healthcare": {
@@ -102,10 +102,10 @@ export default async function BusinessDetailPage({ params }: PageProps) {
         businessHead: "Information to be updated via CMS",
       },
       {
-        slug: "ich-dine-academia",
-        title: "ICH Dine Academia",
+        slug: "ich-dien-academia",
+        title: "ICH Dien Academia",
         shortDescription: "Education, skill development, hospitality training, vocational programs, and professional events.",
-        detailedDescription: "ICH Dine Academia is an education and events venture dedicated to professional skill development, culinary training, hospitality vocational tracks, and corporate event management.",
+        detailedDescription: "ICH Dien Academia is an education and events venture dedicated to professional skill development, culinary training, hospitality vocational tracks, and corporate event management.",
         businessHead: "Information to be updated via CMS",
       },
       {

@@ -50,10 +50,10 @@ async function main() {
       order: 2,
     },
     {
-      slug: "ich-dine-academia",
-      title: "ICH Dine Academia",
+      slug: "ich-dien-academia",
+      title: "ICH Dien Academia",
       shortDescription: "Education, skill development, hospitality training, vocational programs, and professional events.",
-      detailedDescription: "ICH Dine Academia is an education and events venture dedicated to professional skill development, culinary training, hospitality vocational tracks, and corporate event management.",
+      detailedDescription: "ICH Dien Academia is an education and events venture dedicated to professional skill development, culinary training, hospitality vocational tracks, and corporate event management.",
       businessHead: "Information to be updated via CMS",
       status: "ACTIVE" as const,
       order: 3,
@@ -134,7 +134,7 @@ async function main() {
     {
       name: "BUSINESS",
       description: "Handles requests for sector details and dynamic business offerings.",
-      responseGuidance: "Explain the active sectors of Rubinsons: Builders & Infrastructure, Contracting, ICH Dine Academia, Healthcare, and Digital Media. Guide user to browse sector-specific pages.",
+      responseGuidance: "Explain the active sectors of Rubinsons: Builders & Infrastructure, Contracting, ICH Dien Academia, Healthcare, and Digital Media. Guide user to browse sector-specific pages.",
       priority: 8,
       keywords: ["builders", "construction", "contracting", "dine", "academia", "healthcare", "shanti", "digital"],
     },

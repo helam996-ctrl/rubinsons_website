@@ -22,7 +22,7 @@ export default async function AdminStoriesPage() {
     stories = [
       {
         id: "mock-s1",
-        title: "Inauguration of ICH Dine Culinary Training Wing",
+        title: "Inauguration of ICH Dien Culinary Training Wing",
         category: "Corporate",
         status: "PUBLISHED",
         publishedAt: new Date(),

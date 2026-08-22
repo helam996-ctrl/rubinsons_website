@@ -14,9 +14,9 @@ export default async function StoriesPage() {
     stories = [
       {
         id: "s1",
-        title: "Inauguration of ICH Dine Culinary Training Wing",
+        title: "Inauguration of ICH Dien Culinary Training Wing",
         category: "Corporate",
-        content: "We are pleased to announce the inauguration of the new culinary training and skill development facilities at ICH Dine Academia. This reinforces our dedication to vocational training.",
+        content: "We are pleased to announce the inauguration of the new culinary training and skill development facilities at ICH Dien Academia. This reinforces our dedication to vocational training.",
         createdAt: new Date("2026-08-19T10:00:00Z"),
       },
       {

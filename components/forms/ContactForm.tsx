@@ -174,7 +174,7 @@ export default function ContactForm() {
           { label: "Investor Relations Board", value: "INVESTOR" },
           { label: "Rubinsons Builders & Infrastructure", value: "builders-infrastructure" },
           { label: "Rubinsons Contracting", value: "contracting" },
-          { label: "ICH Dine Academia", value: "ich-dine-academia" },
+          { label: "ICH Dien Academia", value: "ich-dien-academia" },
           { label: "Healthcare / Shanti Medical Hall", value: "healthcare" },
           { label: "Rubinsons Digital Media & Marketing", value: "digital-media-marketing" },
         ]}

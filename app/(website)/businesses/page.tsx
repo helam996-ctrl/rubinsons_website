@@ -24,8 +24,8 @@ export default async function BusinessesPage() {
         shortDescription: "Private and public sector contracting services, procurement management, and project execution.",
       },
       {
-        slug: "ich-dine-academia",
-        title: "ICH Dine Academia",
+        slug: "ich-dien-academia",
+        title: "ICH Dien Academia",
         shortDescription: "Education, skill development, hospitality training, vocational programs, and professional events.",
       },
       {

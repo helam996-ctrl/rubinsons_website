@@ -37,7 +37,7 @@ export default async function AdminInquiriesPage() {
         phone: "+919988776655",
         organisation: null,
         type: "GENERAL",
-        message: "When does the next training cohort for hospitality education start at ICH Dine Academia? Thank you.",
+        message: "When does the next training cohort for hospitality education start at ICH Dien Academia? Thank you.",
         status: "CONTACTED",
         createdAt: new Date("2026-08-18T10:00:00Z"),
       },

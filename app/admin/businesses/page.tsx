@@ -39,8 +39,8 @@ export default async function AdminBusinessesPage() {
       },
       {
         id: "mock-3",
-        slug: "ich-dine-academia",
-        title: "ICH Dine Academia",
+        slug: "ich-dien-academia",
+        title: "ICH Dien Academia",
         shortDescription: "Education, skill development, and events.",
         status: "ACTIVE",
         order: 3,

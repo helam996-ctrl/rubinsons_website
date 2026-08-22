@@ -85,7 +85,7 @@ export default async function AdminChatbotPage() {
         id: "mock-intent-2",
         name: "BUSINESS",
         description: "Handles requests for sector details and dynamic business offerings.",
-        responseGuidance: "Explain the active sectors of Rubinsons: Builders & Infrastructure, Contracting, ICH Dine Academia, Healthcare, and Digital Media. Guide user to browse sector-specific pages.",
+        responseGuidance: "Explain the active sectors of Rubinsons: Builders & Infrastructure, Contracting, ICH Dien Academia, Healthcare, and Digital Media. Guide user to browse sector-specific pages.",
         priority: 8,
         enabled: true,
         keywords: [

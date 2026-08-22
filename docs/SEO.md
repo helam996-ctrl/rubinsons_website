@@ -38,7 +38,7 @@ A JSON-LD snippet must be injected into the homepage head to establish corporate
   "subOrganization": [
     {
       "@type": "Organization",
-      "name": "ICH Dine Academia"
+      "name": "ICH Dien Academia"
     },
     {
       "@type": "Organization",

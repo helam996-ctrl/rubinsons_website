@@ -33,9 +33,9 @@ These five sectors are verified. Any copy describing them must remain focused on
 * **Status**: Active
 * **Order**: 2
 
-### 03 — ICH Dine Academia
-* **Slug**: `ich-dine-academia`
-* **Title**: ICH Dine Academia
+### 03 — ICH Dien Academia
+* **Slug**: `ich-dien-academia`
+* **Title**: ICH Dien Academia
 * **Focus**: Education, skill development, hospitality training, vocational programs, and professional events.
 * **Status**: Active
 * **Order**: 3

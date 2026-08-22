@@ -69,7 +69,7 @@ export default function SiteHeader() {
       subLinks: [
         { name: "Builders & Infrastructure", href: "/businesses/builders-infrastructure" },
         { name: "Contracting Services", href: "/businesses/contracting" },
-        { name: "ICH Dine Academia", href: "/businesses/ich-dine-academia" },
+        { name: "ICH Dien Academia", href: "/businesses/ich-dien-academia" },
         { name: "Healthcare Division", href: "/businesses/healthcare" },
         { name: "Digital Media & Marketing", href: "/businesses/digital-media-marketing" },
       ],
@@ -97,7 +97,7 @@ export default function SiteHeader() {
   const businessesMegaMenu = [
     { name: "Builders & Infrastructure", href: "/businesses/builders-infrastructure", image: "/images/builders_infrastructure.jpg" },
     { name: "Contracting Services", href: "/businesses/contracting", image: "/images/contracting_services.jpg" },
-    { name: "ICH Dine Academia", href: "/businesses/ich-dine-academia", image: "/images/ich_dine_academia.jpg" },
+    { name: "ICH Dien Academia", href: "/businesses/ich-dien-academia", image: "/images/ich_dien_academia.jpg" },
     { name: "Healthcare Division", href: "/businesses/healthcare", image: "/images/healthcare_division.jpg" },
     { name: "Digital Media & Marketing", href: "/businesses/digital-media-marketing", image: "/images/digital_media.jpg" },
   ];
@@ -105,7 +105,7 @@ export default function SiteHeader() {
   const searchIndex = [
     { title: "Builders & Infrastructure", category: "Sector", href: "/businesses" },
     { title: "Contracting Services", category: "Sector", href: "/businesses" },
-    { title: "ICH Dine Academia", category: "Sector", href: "/businesses" },
+    { title: "ICH Dien Academia", category: "Sector", href: "/businesses" },
     { title: "Healthcare & Shanti Medical Hall", category: "Sector", href: "/businesses" },
     { title: "Digital Media & Marketing", category: "Sector", href: "/businesses" },
     { title: "Dr. Rudra Bhanu - Managing Director", category: "Leadership", href: "/leadership" },

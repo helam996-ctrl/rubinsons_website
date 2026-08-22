@@ -26,7 +26,7 @@ export default async function Homepage() {
     businesses = [
       { slug: "builders-infrastructure", title: "Rubinsons Builders & Infrastructure", shortDescription: "Civil construction, engineering, and residential infrastructure." },
       { slug: "contracting", title: "Rubinsons Contracting", shortDescription: "Private and public sector contracting services." },
-      { slug: "ich-dine-academia", title: "ICH Dine Academia", shortDescription: "Education, skill development, and events." },
+      { slug: "ich-dien-academia", title: "ICH Dien Academia", shortDescription: "Education, skill development, and events." },
       { slug: "healthcare", title: "Healthcare / Shanti Medical Hall", shortDescription: "Distribution of medical supplies and retail pharma." },
       { slug: "digital-media-marketing", title: "Rubinsons Digital Media & Marketing", shortDescription: "Digital advertising, strategy, and media creation." },
     ];
@@ -49,8 +49,8 @@ export default async function Homepage() {
         return "/images/builders_infrastructure.jpg";
       case "contracting":
         return "/images/contracting_services.jpg";
-      case "ich-dine-academia":
-        return "/images/ich_dine_academia.jpg";
+      case "ich-dien-academia":
+        return "/images/ich_dien_academia.jpg";
       case "healthcare":
         return "/images/healthcare_division.jpg";
       case "digital-media-marketing":
@@ -131,7 +131,7 @@ export default async function Homepage() {
             "subOrganization": [
               {
                 "@type": "Organization",
-                "name": "ICH Dine Academia"
+                "name": "ICH Dien Academia"
               },
               {
                 "@type": "Organization",

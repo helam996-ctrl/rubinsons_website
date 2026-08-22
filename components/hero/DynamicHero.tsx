@@ -32,10 +32,10 @@ export default function DynamicHero() {
     },
     {
       id: 2,
-      tagline: "ICH Dine Academia",
+      tagline: "ICH Dien Academia",
       title: "Training the future leaders of hospitality.",
       description: "A vocational academy specializing in culinary excellence, event coordination, and professional skill empowerment.",
-      image: "/images/ich_dine_academia.jpg",
+      image: "/images/ich_dien_academia.jpg",
     },
     {
       id: 3,
@@ -98,13 +98,13 @@ export default function DynamicHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 w-full gap-y-3 lg:gap-y-0 lg:gap-x-8 items-center">
 
           {/* Left Column: Brand Prefix */}
-          <div className="w-full text-center lg:text-right text-white text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl uppercase font-[300] pb-3 lg:pb-0 lg:flex lg:justify-end lg:items-center tracking-wide select-none lg:col-span-4 xl:col-span-5 whitespace-nowrap">
+          <div className="w-full text-center lg:text-right text-white text-lg sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl uppercase font-[300] pb-3 lg:pb-0 lg:flex lg:justify-end lg:items-center tracking-wide select-none lg:col-span-4 xl:col-span-5 whitespace-nowrap">
             <span>Rubinsons Group</span>
             <span className="hidden lg:inline mx-4 text-slate-500 font-light">|</span>
           </div>
 
           {/* Right Column: Sliding Taglines */}
-          <div className="relative h-15 sm:h-20 xl:h-25 overflow-hidden flex justify-center lg:justify-start w-full lg:col-span-8 xl:col-span-7">
+          <div className="relative h-20 sm:h-24 lg:h-28 overflow-hidden flex justify-center lg:justify-start w-full lg:col-span-8 xl:col-span-7">
             <div
               className="transition-transform duration-700 ease-in-out w-full h-fit"
               style={{ transform: `translateY(-${currentSlide * (100 / 6)}%)` }}
@@ -115,10 +115,10 @@ export default function DynamicHero() {
                 return (
                   <div
                     key={`${slide.id}-${index}`}
-                    className="h-15 sm:h-20 xl:h-25 flex flex-col justify-center items-center lg:items-start transition-all duration-500"
+                    className="h-20 sm:h-24 lg:h-28 flex flex-col justify-center items-center lg:items-start transition-all duration-500"
                   >
                     <span
-                      className={`text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-sans tracking-wide uppercase transition-all duration-500 whitespace-nowrap text-center lg:text-left ${isActive
+                      className={`text-lg sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-sans tracking-wide uppercase transition-all duration-500 whitespace-normal lg:whitespace-nowrap text-center lg:text-left ${isActive
                         ? "text-white font-[800] opacity-100 scale-100"
                         : "text-white/0 font-[800] opacity-0 scale-95 pointer-events-none"
                         }`}
