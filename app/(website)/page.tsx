@@ -16,8 +16,13 @@ export default async function Homepage() {
 
   try {
     const [dbBusinesses, dbLeaders] = await Promise.all([
-      prisma.business.findMany({ orderBy: { order: "asc" }, take: 5 }),
-      prisma.leadership.findMany({ orderBy: { order: "asc" }, take: 5 }),
+      prisma.business.findMany({
+        orderBy: { order: "asc" },
+        where: { status: "ACTIVE" }
+      }),
+      prisma.leadership.findMany({
+        orderBy: { order: "asc" }
+      }),
     ]);
     businesses = dbBusinesses;
     leaders = dbLeaders;
@@ -143,7 +148,7 @@ export default async function Homepage() {
       />
 
       {/* 1. Dynamic Hero Section */}
-      <DynamicHero />
+      <DynamicHero initialBusinesses={businesses} />
 
       {/* 2. Corporate Introduction */}
       <ScrollReveal>

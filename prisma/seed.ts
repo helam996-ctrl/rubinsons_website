@@ -204,6 +204,18 @@ async function main() {
     { key: "contact_email", value: "contact@rubinsons.com", description: "Main public contact inbox" },
     { key: "admin_emails", value: "admin@rubinsons.com", description: "Comma-separated list of administrative emails for alerts" },
     { key: "whatsapp_number", value: "919999999999", description: "WhatsApp Business target contact number (including country code)" },
+    { key: "link_careers", value: "https://careers.rubinsons.com/", description: "Careers portal link" },
+    { key: "link_leadership_prog", value: "https://abglp.rubinsons.com/", description: "Leadership programs link" },
+    { key: "link_mfg_prog", value: "https://abgmlp.rubinsons.com/", description: "Global manufacturing program link" },
+    { key: "link_compliance", value: "https://www.rubinsons.com/compliance/", description: "Compliance link" },
+    { key: "link_contact_us", value: "https://www.rubinsons.com/contact-us/", description: "Contact Us page link" },
+    { key: "link_privacy_notice", value: "https://www.rubinsons.com/privacy-notice/", description: "Privacy Notice link" },
+    { key: "link_cookie_notice", value: "https://www.rubinsons.com/cookie-notice/", description: "Cookie Notice link" },
+    { key: "link_terms_conditions", value: "https://www.rubinsons.com/terms-and-conditions/", description: "Terms & Conditions link" },
+    { key: "social_linkedin", value: "https://linkedin.com/company/rubinsons", description: "LinkedIn handle URL" },
+    { key: "social_instagram", value: "https://instagram.com/rubinsons", description: "Instagram handle URL" },
+    { key: "social_facebook", value: "https://facebook.com/rubinsons", description: "Facebook handle URL" },
+    { key: "social_youtube", value: "https://youtube.com/rubinsons", description: "YouTube handle URL" },
   ];
 
   for (const s of settings) {

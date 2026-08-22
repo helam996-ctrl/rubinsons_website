@@ -5,17 +5,38 @@ import Link from "next/link";
 import TrackCtaLink from "@/components/analytics/TrackCtaLink";
 
 interface Slide {
-  id: number;
+  id: string | number;
   tagline: string;
   title: string;
   description: string;
   image: string;
 }
 
-export default function DynamicHero() {
+interface DynamicHeroProps {
+  initialBusinesses?: any[];
+}
+
+export default function DynamicHero({ initialBusinesses = [] }: DynamicHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides: Slide[] = [
+  const getBusinessImage = (slug: string) => {
+    switch (slug) {
+      case "builders-infrastructure":
+        return "/images/builders_infrastructure.jpg";
+      case "contracting":
+        return "/images/contracting_services.jpg";
+      case "ich-dien-academia":
+        return "/images/ich_dien_academia.jpg";
+      case "healthcare":
+        return "/images/healthcare_division.jpg";
+      case "digital-media-marketing":
+        return "/images/digital_media.jpg";
+      default:
+        return "/images/builders_infrastructure.jpg";
+    }
+  };
+
+  const defaultSlides: Slide[] = [
     {
       id: 0,
       tagline: "Builders & Infrastructure",
@@ -53,23 +74,37 @@ export default function DynamicHero() {
     },
   ];
 
+  // Map db businesses to slides, fallback to defaultSlides if empty
+  const slides: Slide[] = initialBusinesses.length > 0
+    ? initialBusinesses.map((b, index) => ({
+        id: b.id || index,
+        tagline: b.title.replace("Rubinsons ", ""),
+        title: b.shortDescription,
+        description: b.detailedDescription,
+        image: b.imageUrl || getBusinessImage(b.slug),
+      }))
+    : defaultSlides;
+
   useEffect(() => {
+    if (slides.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 2000); // 6 seconds per slide
+    }, 4000); // 4 seconds per slide
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const listItems = [
+  const listItems = slides.length > 0 ? [
     ...slides,
     {
-      id: 5,
+      id: "loop-buffer",
       tagline: slides[0].tagline,
       title: slides[0].title,
       description: slides[0].description,
       image: slides[0].image,
     }
-  ];
+  ] : [];
+
+  if (slides.length === 0) return null;
 
   return (
     <section className="relative bg-slate-950 text-white min-h-[640px] md:min-h-[700px] flex items-center px-6 sm:px-8 border-b border-slate-900 overflow-hidden pt-28 pb-20">
@@ -107,7 +142,7 @@ export default function DynamicHero() {
           <div className="relative h-20 sm:h-24 lg:h-28 overflow-hidden flex justify-center lg:justify-start w-full lg:col-span-8 xl:col-span-7">
             <div
               className="transition-transform duration-700 ease-in-out w-full h-fit"
-              style={{ transform: `translateY(-${currentSlide * (100 / 6)}%)` }}
+              style={{ transform: `translateY(-${currentSlide * (100 / listItems.length)}%)` }}
             >
               {listItems.map((slide, index) => {
                 const isActive = index === currentSlide;

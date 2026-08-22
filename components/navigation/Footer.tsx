@@ -1,9 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  // Dynamic settings links state
+  const [settings, setSettings] = useState<Record<string, string>>({
+    link_careers: "https://careers.rubinsons.com/",
+    link_leadership_prog: "https://abglp.rubinsons.com/",
+    link_mfg_prog: "https://abgmlp.rubinsons.com/",
+    link_compliance: "https://www.rubinsons.com/compliance/",
+    link_contact_us: "https://www.rubinsons.com/contact-us/",
+    link_privacy_notice: "https://www.rubinsons.com/privacy-notice/",
+    link_cookie_notice: "https://www.rubinsons.com/cookie-notice/",
+    link_terms_conditions: "https://www.rubinsons.com/terms-and-conditions/",
+    social_linkedin: "https://linkedin.com/company/rubinsons",
+    social_instagram: "https://instagram.com/rubinsons",
+    social_facebook: "https://facebook.com/rubinsons",
+    social_youtube: "https://youtube.com/rubinsons",
+  });
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const res = await fetch("/api/settings");
+        if (res.ok) {
+          const data = await res.json();
+          setSettings((prev) => ({
+            ...prev,
+            ...data,
+          }));
+        }
+      } catch (err) {
+        console.warn("[Footer] Could not retrieve footer settings from API, using default link fallbacks.");
+      }
+    }
+    fetchSettings();
+  }, []);
 
   // Newsletter states
   const [email, setEmail] = useState("");
@@ -167,7 +201,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-xs text-slate-400">
             <li>
               <a
-                href="https://careers.rubinsons.com/"
+                href={settings.link_careers}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors flex items-center gap-1 group"
@@ -178,7 +212,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://abglp.rubinsons.com/"
+                href={settings.link_leadership_prog}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors flex items-center gap-1 group"
@@ -189,7 +223,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://abgmlp.rubinsons.com/"
+                href={settings.link_mfg_prog}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors flex items-center gap-1 group"
@@ -209,7 +243,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-xs text-slate-400">
             <li>
               <a
-                href="https://www.rubinsons.com/compliance/"
+                href={settings.link_compliance}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors flex items-center gap-1 group"
@@ -220,7 +254,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://www.rubinsons.com/contact-us/"
+                href={settings.link_contact_us}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors flex items-center gap-1 group"
@@ -240,7 +274,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-xs text-slate-400">
             <li>
               <a
-                href="https://www.rubinsons.com/privacy-notice/"
+                href={settings.link_privacy_notice}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors"
@@ -250,7 +284,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://www.rubinsons.com/cookie-notice/"
+                href={settings.link_cookie_notice}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors"
@@ -260,7 +294,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://www.rubinsons.com/terms-and-conditions/"
+                href={settings.link_terms_conditions}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-brand-bronze transition-colors"
@@ -309,7 +343,63 @@ export default function Footer() {
               &copy; {currentYear} All Rights Reserved. Rubinsons Management Corporation Pvt. Ltd.
             </p>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-6 items-center flex-wrap justify-center">
+            {/* Social Media Icons */}
+            <div className="flex gap-3.5 items-center">
+              {/* LinkedIn */}
+              <a
+                href={settings.social_linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-brand-bronze transition-colors"
+                title="LinkedIn"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              {/* Instagram */}
+              <a
+                href={settings.social_instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-brand-bronze transition-colors"
+                title="Instagram"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              {/* Facebook */}
+              <a
+                href={settings.social_facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-brand-bronze transition-colors"
+                title="Facebook"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                </svg>
+              </a>
+              {/* YouTube */}
+              <a
+                href={settings.social_youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-brand-bronze transition-colors"
+                title="YouTube"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.107C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.388.511a3.002 3.002 0 0 0-2.11 2.107C0 8.021 0 12 0 12s0 3.979.502 5.837a3.001 3.001 0 0 0 2.11 2.107C4.495 20.455 12 20.455 12 20.455s7.505 0 9.388-.511a3.001 3.001 0 0 0 2.11-2.107C24 15.979 24 12 24 12s0-3.979-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+            </div>
+
+            <span className="text-slate-700 hidden sm:inline">|</span>
+
             <button
               onClick={() => setShowCookieModal(true)}
               className="text-slate-400 hover:text-brand-bronze transition-colors cursor-pointer border-b border-dashed border-slate-600 hover:border-brand-bronze pb-0.5"
