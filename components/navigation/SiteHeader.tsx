@@ -143,13 +143,20 @@ export default function SiteHeader() {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex justify-between items-center">
           {/* Brand Identity */}
-          <Link href="/" className="space-y-0.5 group">
-            <span className="text-[10px] uppercase tracking-widest text-brand-bronze font-bold block transition-all group-hover:text-brand-bronze-dark">
-              Rubinsons Group
-            </span>
-            <span className="text-xl font-serif font-medium text-brand-slate-900 leading-none block">
-              Rubinsons Private Ltd
-            </span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <img
+              src="/images/logo.jpg"
+              alt="Rubinsons Group"
+              className="h-10 w-auto object-contain rounded mix-blend-multiply bg-transparent"
+            />
+            <div className="space-y-0.5 hidden sm:block">
+              <span className="text-[10px] uppercase tracking-widest text-brand-bronze font-bold block transition-all group-hover:text-brand-bronze-dark leading-none">
+                Rubinsons Group
+              </span>
+              <span className="text-sm font-serif font-medium text-brand-slate-900 leading-none block">
+                Rubinsons Private Ltd
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}

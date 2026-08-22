@@ -28,13 +28,20 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
   return (
     <aside className="w-64 border-r border-slate-200 bg-white flex flex-col h-screen sticky top-0">
       {/* Brand Logo Header */}
-      <div className="p-6 border-b border-slate-100">
-        <span className="text-xs uppercase tracking-widest text-brand-bronze-dark font-sans font-medium">
-          Control Panel
-        </span>
-        <h2 className="text-xl font-serif font-medium text-brand-slate-900 mt-1">
-          Rubinsons CMS
-        </h2>
+      <div className="p-6 border-b border-slate-100 flex items-center gap-3">
+        <img
+          src="/images/logo.jpg"
+          alt="Rubinsons Group"
+          className="h-10 w-auto object-contain rounded mix-blend-multiply bg-transparent"
+        />
+        <div>
+          <span className="text-[10px] uppercase tracking-widest text-brand-bronze-dark font-sans font-medium block leading-none">
+            Control Panel
+          </span>
+          <h2 className="text-sm font-serif font-medium text-brand-slate-900 mt-1 block leading-none">
+            Rubinsons CMS
+          </h2>
+        </div>
       </div>
 
       {/* Nav List */}
