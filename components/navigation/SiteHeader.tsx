@@ -16,7 +16,20 @@ interface NavItem {
   subLinks?: SubLink[];
 }
 
-export default function SiteHeader() {
+export interface DBBusiness {
+  id: string;
+  slug: string;
+  title: string;
+  imageUrl: string | null;
+  status: string;
+  order: number;
+}
+
+interface SiteHeaderProps {
+  dbBusinesses?: DBBusiness[];
+}
+
+export default function SiteHeader({ dbBusinesses = [] }: SiteHeaderProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,6 +67,36 @@ export default function SiteHeader() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const getBusinessImage = (slug: string) => {
+    switch (slug) {
+      case "builders-infrastructure":
+        return "/images/builders_infrastructure.jpg";
+      case "contracting":
+        return "/images/contracting_services.jpg";
+      case "ich-dien-academia":
+        return "/images/ich_dien_academia.jpg";
+      case "healthcare":
+        return "/images/healthcare_division.jpg";
+      case "digital-media-marketing":
+        return "/images/digital_media.jpg";
+      default:
+        return "/images/builders_infrastructure.jpg";
+    }
+  };
+
+  const dynamicSubLinks = dbBusinesses && dbBusinesses.length > 0
+    ? dbBusinesses.map((b) => ({
+        name: b.title.replace("Rubinsons ", ""),
+        href: `/businesses/${b.slug}`,
+      }))
+    : [
+        { name: "Builders & Infrastructure", href: "/businesses/builders-infrastructure" },
+        { name: "Contracting Services", href: "/businesses/contracting" },
+        { name: "ICH Dien Academia", href: "/businesses/ich-dien-academia" },
+        { name: "Healthcare Division", href: "/businesses/healthcare" },
+        { name: "Digital Media & Marketing", href: "/businesses/digital-media-marketing" },
+      ];
+
   const navItems: NavItem[] = [
     {
       name: "Our Story",
@@ -66,13 +109,7 @@ export default function SiteHeader() {
     },
     {
       name: "Businesses",
-      subLinks: [
-        { name: "Builders & Infrastructure", href: "/businesses/builders-infrastructure" },
-        { name: "Contracting Services", href: "/businesses/contracting" },
-        { name: "ICH Dien Academia", href: "/businesses/ich-dien-academia" },
-        { name: "Healthcare Division", href: "/businesses/healthcare" },
-        { name: "Digital Media & Marketing", href: "/businesses/digital-media-marketing" },
-      ],
+      subLinks: dynamicSubLinks,
     },
     {
       name: "Media",
@@ -94,20 +131,34 @@ export default function SiteHeader() {
     { name: "Contact", href: "/contact" },
   ];
 
-  const businessesMegaMenu = [
-    { name: "Builders & Infrastructure", href: "/businesses/builders-infrastructure", image: "/images/builders_infrastructure.jpg" },
-    { name: "Contracting Services", href: "/businesses/contracting", image: "/images/contracting_services.jpg" },
-    { name: "ICH Dien Academia", href: "/businesses/ich-dien-academia", image: "/images/ich_dien_academia.jpg" },
-    { name: "Healthcare Division", href: "/businesses/healthcare", image: "/images/healthcare_division.jpg" },
-    { name: "Digital Media & Marketing", href: "/businesses/digital-media-marketing", image: "/images/digital_media.jpg" },
-  ];
+  const businessesMegaMenu = dbBusinesses && dbBusinesses.length > 0
+    ? dbBusinesses.map((b) => ({
+        name: b.title.replace("Rubinsons ", ""),
+        href: `/businesses/${b.slug}`,
+        image: b.imageUrl || getBusinessImage(b.slug),
+      }))
+    : [
+        { name: "Builders & Infrastructure", href: "/businesses/builders-infrastructure", image: "/images/builders_infrastructure.jpg" },
+        { name: "Contracting Services", href: "/businesses/contracting", image: "/images/contracting_services.jpg" },
+        { name: "ICH Dien Academia", href: "/businesses/ich-dien-academia", image: "/images/ich_dien_academia.jpg" },
+        { name: "Healthcare Division", href: "/businesses/healthcare", image: "/images/healthcare_division.jpg" },
+        { name: "Digital Media & Marketing", href: "/businesses/digital-media-marketing", image: "/images/digital_media.jpg" },
+      ];
 
   const searchIndex = [
-    { title: "Builders & Infrastructure", category: "Sector", href: "/businesses" },
-    { title: "Contracting Services", category: "Sector", href: "/businesses" },
-    { title: "ICH Dien Academia", category: "Sector", href: "/businesses" },
-    { title: "Healthcare & Shanti Medical Hall", category: "Sector", href: "/businesses" },
-    { title: "Digital Media & Marketing", category: "Sector", href: "/businesses" },
+    ...(dbBusinesses && dbBusinesses.length > 0
+      ? dbBusinesses.map((b) => ({
+          title: b.title,
+          category: "Sector",
+          href: `/businesses/${b.slug}`,
+        }))
+      : [
+          { title: "Builders & Infrastructure", category: "Sector", href: "/businesses" },
+          { title: "Contracting Services", category: "Sector", href: "/businesses" },
+          { title: "ICH Dien Academia", category: "Sector", href: "/businesses" },
+          { title: "Healthcare & Shanti Medical Hall", category: "Sector", href: "/businesses" },
+          { title: "Digital Media & Marketing", category: "Sector", href: "/businesses" },
+        ]),
     { title: "Dr. Rudra Bhanu - Managing Director", category: "Leadership", href: "/leadership" },
     { title: "Rudra Vahini Foundation (CSR)", category: "Social Impact", href: "/stories?category=csr" },
     { title: "Kaarigari Artisans Initiative", category: "Social Impact", href: "/stories?category=kaarigari" },

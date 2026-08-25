@@ -5,6 +5,8 @@ import TrackCtaLink from "@/components/analytics/TrackCtaLink";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import DynamicHero from "@/components/hero/DynamicHero";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Rubinsons Group | Diversified Corporate Group India",
   description: "Rubinsons Group is a diversified family-backed Indian corporate enterprise operating across builders, contracting, education, healthcare, and digital media.",
@@ -29,16 +31,16 @@ export default async function Homepage() {
   } catch {
     // Static fallbacks
     businesses = [
-      { slug: "builders-infrastructure", title: "Rubinsons Builders & Infrastructure", shortDescription: "Civil construction, engineering, and residential infrastructure." },
-      { slug: "contracting", title: "Rubinsons Contracting", shortDescription: "Private and public sector contracting services." },
-      { slug: "ich-dien-academia", title: "ICH Dien Academia", shortDescription: "Education, skill development, and events." },
-      { slug: "healthcare", title: "Healthcare / Shanti Medical Hall", shortDescription: "Distribution of medical supplies and retail pharma." },
-      { slug: "digital-media-marketing", title: "Rubinsons Digital Media & Marketing", shortDescription: "Digital advertising, strategy, and media creation." },
+      { slug: "builders-infrastructure", title: "Rubinsons Builders & Infrastructure", shortDescription: "Civil construction, engineering, and residential infrastructure.", imageUrl: null },
+      { slug: "contracting", title: "Rubinsons Contracting", shortDescription: "Private and public sector contracting services.", imageUrl: null },
+      { slug: "ich-dien-academia", title: "ICH Dien Academia", shortDescription: "Education, skill development, and events.", imageUrl: null },
+      { slug: "healthcare", title: "Healthcare / Shanti Medical Hall", shortDescription: "Distribution of medical supplies and retail pharma.", imageUrl: null },
+      { slug: "digital-media-marketing", title: "Rubinsons Digital Media & Marketing", shortDescription: "Digital advertising, strategy, and media creation.", imageUrl: null },
     ];
     leaders = [
-      { name: "Dr. Rudra Bhanu", role: "Managing Director" },
-      { name: "Bindu Sharma", role: "Director" },
-      { name: "Shreyashi Sharma", role: "Director" },
+      { name: "Dr. Rudra Bhanu", role: "Managing Director", biography: "", imageUrl: null },
+      { name: "Bindu Sharma", role: "Director", biography: "", imageUrl: null },
+      { name: "Shreyashi Sharma", role: "Director", biography: "", imageUrl: null },
     ];
   }
 
@@ -215,7 +217,7 @@ export default async function Homepage() {
                     {/* Stock Image Thumbnail inside Sector Card */}
                     <div className="aspect-[16/10] w-full overflow-hidden rounded bg-slate-100 border border-slate-200/40 relative">
                       <img
-                        src={getBusinessImage(b.slug)}
+                        src={b.imageUrl || getBusinessImage(b.slug)}
                         alt={b.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
@@ -323,13 +325,26 @@ export default async function Homepage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {leaders.map((l) => (
-              <div key={l.name} className="border border-slate-200/80 rounded p-6 bg-slate-50/50 hover:bg-white hover:shadow-md transition-all duration-300">
-                <h4 className="text-base font-semibold text-brand-slate-900">{l.name}</h4>
-                <p className="text-xs text-brand-bronze-dark font-semibold uppercase tracking-wider mt-1">
-                  {l.role}
-                </p>
-                <p className="text-xs text-slate-500 mt-4 leading-relaxed">
-                  Biography and governance statements registered under CMS.
+              <div key={l.name} className="border border-slate-200/80 rounded p-6 bg-slate-50/50 hover:bg-white hover:shadow-md transition-all duration-300 flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="h-16 w-16 rounded-full overflow-hidden border border-slate-200 bg-slate-100 shrink-0">
+                    {l.imageUrl ? (
+                      <img src={l.imageUrl} alt={l.name} className="h-full w-full object-cover" />
+                    ) : (
+                      <div className="h-full w-full flex items-center justify-center text-xs font-bold text-slate-400 bg-slate-200">
+                        {l.name.split(" ").map((n) => n[0]).join("")}
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold text-brand-slate-900 leading-tight">{l.name}</h4>
+                    <p className="text-xs text-brand-bronze-dark font-semibold uppercase tracking-wider mt-1">
+                      {l.role}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 leading-relaxed pt-2">
+                  {l.biography || "Biography and governance statements registered under CMS."}
                 </p>
               </div>
             ))}
