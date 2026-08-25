@@ -25,7 +25,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     ...authConfig.callbacks,
     async signIn({ user, account }) {
       if (account?.provider === "google") {
-        const email = user.email;
+        const email = user.email?.toLowerCase();
         if (!email) return false;
 
         try {
@@ -63,8 +63,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
     async jwt({ token }) {
       if (token.email) {
+        const email = token.email.toLowerCase();
         // Fast-path bypass for administrator accounts (online & offline)
-        if (token.email === "helam996@gmail.com" || token.email === "admin@rubinsons.com") {
+        if (email === "helam996@gmail.com" || email === "admin@rubinsons.com") {
           token.role = "SUPER_ADMIN";
           token.isActive = true;
           return token;
@@ -72,7 +73,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         try {
           const dbUser = await prisma.user.findUnique({
-            where: { email: token.email },
+            where: { email },
           });
           if (dbUser) {
             token.role = dbUser.role;

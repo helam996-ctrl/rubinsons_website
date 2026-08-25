@@ -48,7 +48,7 @@ export const authConfig = {
       if (isOnAdmin) {
         if (isLoggedIn && user) {
           // Fallback bypass for admin access via emails directly
-          const email = user.email;
+          const email = user.email?.toLowerCase();
           if (email === "helam996@gmail.com" || email === "admin@rubinsons.com") {
             return true;
           }
